@@ -8,7 +8,7 @@ const UserCardComponent = ({
   userData: { id, firstName, lastName, image, email },
 }: UserPropsType) => {
   return (
-    <div className="border-grad gradient-border card w-80 shadow-3xl backdrop-blur-3xl">
+    <div className="border-grad gradient-border card w-80 shadow-3xl">
       <figure className="border-b-2 border-slate-300">
         <img src={image} className="mx-auto max-w-48 md:max-w-56" alt="Shoes" />
       </figure>

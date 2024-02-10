@@ -30,3 +30,8 @@ html {
     background-size: 350%;
   }
 }
+
+.active-style:active {
+  color: white !important;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity)) !important;
+}
