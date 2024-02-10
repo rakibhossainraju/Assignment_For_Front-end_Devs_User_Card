@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  @apply min-h-[100vh] min-w-full bg-gradient-to-r from-cyan-50 to-teal-100;
+}
+
+.gradient-text {
+  background: rgb(2, 0, 36);
+  background: -webkit-linear-gradient(
+    20deg,
+    rgba(0, 212, 255, 1) 5%,
+    rgba(9, 9, 121, 1) 29%,
+    rgba(2, 0, 36, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateText 3s linear infinite alternate;
+}
+@keyframes animateText {
+  0% {
+    background-size: 150% auto;
+  }
+  100% {
+    background-size: 350%;
+  }
+}

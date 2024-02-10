@@ -54,9 +54,7 @@ const useFetchData = <T>(
         }
       }
     };
-
     fetchData();
-
     return () => {
       isMounted = false;
     };

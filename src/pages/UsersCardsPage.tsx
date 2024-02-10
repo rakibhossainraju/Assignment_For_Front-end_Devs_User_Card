@@ -1,5 +1,6 @@
 import useFetchData from "../hooks/useFetchData.ts";
 import UserCardComponent from "../components/UserCardComponent.tsx";
+import LoadingModalComponent from "../components/LoadingModalComponent.tsx";
 
 export interface UserType {
   id: number;
@@ -22,20 +23,22 @@ const UsersCardsPage = () => {
     isLoading,
     error,
   } = useFetchData<UserType>(url, "users");
-  const ShowUserCards = () => {
-    if (isLoading) return <h1>Loading...</h1>;
-    if (error) return <h1>Fail to fetch data</h1>;
-    if (usersData.length)
-      return (
-        <>
-          <h2>Users Card</h2>
+
+  if (isLoading) return <LoadingModalComponent />;
+  if (error) return <h1>Fail to fetch data</h1>;
+  if (usersData.length)
+    return (
+      <main className="p-10">
+        <h2 className="gradient-text my-5 text-center font-medium max-md:text-5xl md:text-[5rem]">
+          User Cards
+        </h2>
+        <section className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
           {usersData.map((userData) => (
             <UserCardComponent key={userData.firstName} userData={userData} />
           ))}
-        </>
-      );
-  };
-  return <ShowUserCards />;
+        </section>
+      </main>
+    );
 };
 
 export default UsersCardsPage;
