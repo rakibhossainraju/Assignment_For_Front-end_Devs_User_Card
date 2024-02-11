@@ -5,22 +5,24 @@ interface UserPropsType {
   userData: UserType;
 }
 const UserCardComponent = ({
-  userData: { id, firstName, lastName, image, email },
+  userData: { id, firstName, lastName, image, email, company },
 }: UserPropsType) => {
   return (
     <div className="border-grad gradient-border card w-80 shadow-3xl">
       <figure className="border-b-2 border-slate-300">
         <img src={image} className="mx-auto max-w-48 md:max-w-56" alt="Shoes" />
       </figure>
-      <div className="card-body text-center">
-        <h2 className="text-xl font-medium text-blue-950">
+      <div className="card-body">
+        <h2 className="card-title font-medium text-blue-900">
           {firstName} {lastName}
         </h2>
-        <p>{email}</p>
+        <p className="text-sm text-slate-500">Email : {email}</p>
+        <p className="text-sm text-slate-500">Company Name : {company.name}</p>
 
         <div className="card-actions mt-5">
           <Link
-            to={"users/" + id.toString()}
+            to={"/users/" + id.toString()}
+            state={"hello"}
             className="btn btn-primary w-full text-lg text-blue-50"
           >
             See Details

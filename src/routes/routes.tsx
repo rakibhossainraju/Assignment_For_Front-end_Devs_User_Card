@@ -9,11 +9,11 @@ export const routes = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "",
+        path: "/users",
         element: <UsersCardsPage />,
       },
       {
-        path: "users/:userId",
+        path: "/users/:userId",
         element: <UserDetailsPage />,
       },
     ],

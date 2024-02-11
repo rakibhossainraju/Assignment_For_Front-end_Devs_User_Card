@@ -1,4 +1,10 @@
-const SortBarComponent = () => {
+import { type UserType } from "../pages/UsersCardsPage";
+
+interface SortBarPropsType {
+  sortUsers: (sortedBy: keyof UserType) => void;
+}
+
+const SortBarComponent = ({ sortUsers }: SortBarPropsType) => {
   return (
     <div className="dropdown dropdown-bottom max-md:flex-col">
       <div
@@ -21,13 +27,19 @@ const SortBarComponent = () => {
         className="menu dropdown-content z-[1] w-52 rounded-box bg-white p-2 shadow"
       >
         <li>
-          <a className="active-style">Name</a>
+          <a onClick={() => sortUsers("firstName")} className="active-style">
+            Name
+          </a>
         </li>
         <li>
-          <a className="active-style">Email</a>
+          <a onClick={() => sortUsers("email")} className="active-style">
+            Email
+          </a>
         </li>
         <li>
-          <a className="active-style">Company Name</a>
+          <a onClick={() => sortUsers("company")} className="active-style">
+            Company Name
+          </a>
         </li>
       </ul>
     </div>
