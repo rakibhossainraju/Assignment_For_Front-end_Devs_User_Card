@@ -4,6 +4,7 @@ import SortBarComponent from "../components/SortBarComponent.tsx";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { debounce } from "../utils/debounce.ts";
+import AddUserModal from "../components/AddUserModal.tsx";
 
 export interface UserType {
   id: number;
@@ -70,6 +71,7 @@ const UsersCardsPage = () => {
       <div className="my-5 flex items-center justify-center gap-5 max-md:flex-col md:my-14 md:gap-10">
         <SearchBarComponent handelSearch={handelSearch} />
         <SortBarComponent sortUsers={sortUsers} />
+        <AddUserModal />
       </div>
       <section className="mx-auto flex max-w-[90rem] flex-wrap items-center justify-center gap-10 md:gap-16">
         {userData.map((userData) => (
