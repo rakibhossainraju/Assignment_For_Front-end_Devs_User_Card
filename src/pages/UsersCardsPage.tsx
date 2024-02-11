@@ -3,6 +3,7 @@ import SearchBarComponent from "../components/SearchBarComponent.tsx";
 import SortBarComponent from "../components/SortBarComponent.tsx";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { debounce } from "../utils/debounce.ts";
 
 export interface UserType {
   id: number;
@@ -31,7 +32,7 @@ const UsersCardsPage = () => {
 
   let searchedData: UserType[] = [];
 
-  const handelSearch = (query: string) => {
+  const handelSearch = debounce((query: string) => {
     searchedData = data.filter(
       (userData) =>
         userData.firstName.toLowerCase().includes(query) ||
@@ -40,7 +41,7 @@ const UsersCardsPage = () => {
         userData.company.name.toLowerCase().includes(query),
     );
     setUserData(searchedData);
-  };
+  }, 550);
 
   const sortUsers = <K extends keyof UserType>(sortedBy: K) => {
     const sortedUsers = [...userData].sort((a, b) => {

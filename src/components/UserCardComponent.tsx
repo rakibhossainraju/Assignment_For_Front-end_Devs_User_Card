@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 interface UserPropsType {
   userData: UserType;
 }
-const UserCardComponent = ({
-  userData: { id, firstName, lastName, image, email, company },
-}: UserPropsType) => {
+const UserCardComponent = ({ userData }: UserPropsType) => {
+  const { id, firstName, lastName, image, email, company } = userData;
   return (
     <div className="border-grad gradient-border card w-80 shadow-3xl">
       <figure className="border-b-2 border-slate-300">
@@ -22,7 +21,7 @@ const UserCardComponent = ({
         <div className="card-actions mt-5">
           <Link
             to={"/users/" + id.toString()}
-            state={"hello"}
+            state={{ userData }}
             className="btn btn-primary w-full text-lg text-blue-50"
           >
             See Details
