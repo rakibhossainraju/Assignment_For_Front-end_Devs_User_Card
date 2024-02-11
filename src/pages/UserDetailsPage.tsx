@@ -1,9 +1,10 @@
-import { Link, useLocation } from "react-router-dom";
-import { UserType } from "./UsersCardsPage";
+import { useLocation, useNavigate } from "react-router-dom";
+import { type UserType } from "./UsersCardsPage";
 
 const UserDetailsPage = () => {
   const { firstName, lastName, image, company, address } = useLocation().state
     .userData as UserType;
+  const navigate = useNavigate();
 
   return (
     <section className="flex min-h-[90vh] w-full flex-col items-center justify-center gap-10">
@@ -37,9 +38,9 @@ const UserDetailsPage = () => {
           </div>
         </div>
       </div>
-      <Link to={-1} className="btn-gradient">
+      <button onClick={() => navigate(-1)} className="btn-gradient">
         Go back
-      </Link>
+      </button>
     </section>
   );
 };
