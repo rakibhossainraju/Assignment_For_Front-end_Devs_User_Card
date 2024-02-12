@@ -20,7 +20,7 @@ const UserCardComponent = ({ userData }: UserPropsType) => {
 
         <div className="card-actions mt-5">
           <Link
-            to={"/users/" + id.toString()}
+            to={"users/" + id.toString()}
             state={{ userData }}
             className="btn btn-primary w-full text-lg text-blue-50"
           >
