@@ -66,7 +66,7 @@ const UsersCardsPage = () => {
   if (isLoading) return <LoadingModalComponent />;
   if (error)
     return <h1 className="text-center text-2xl">Fail to fetch data</h1>;
-  if (userData.length > 0)
+  if (data.length > 0)
     return (
       <main className="p-5">
         <h2 className="gradient-text my-5 text-center font-medium max-md:text-5xl md:text-[5rem]">
